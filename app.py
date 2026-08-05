@@ -70,6 +70,11 @@ div.stButton > button:hover { border-color: #ff4b4b !important; color: #ff4b4b !
 h1, h2, h3 { color: #ff4b4b !important; text-align: right; }
 .stProgress > div > div > div > div { background-color: #ff4b4b; }
 .empty-grill-box, .empty-grill-box h3, .empty-grill-box p { text-align: center !important; color: #666 !important; width: 100%; }
+
+/* תיקון באג התנועה ההפוכה של הסליידר */
+div[data-baseweb="slider"] {
+    direction: ltr !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
