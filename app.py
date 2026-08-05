@@ -77,19 +77,16 @@ if 'grill_items' not in st.session_state:
 if 'history_log' not in st.session_state:
     st.session_state.history_log = []
 
-
 # --- פונקציות עזר לצלילים ---
 def play_flip_sound():
     st.markdown(
         '<audio autoplay><source src="https://www.soundjay.com/buttons/sounds/button-09.mp3" type="audio/mpeg"></audio>',
         unsafe_allow_html=True)
 
-
 def play_done_sound():
     st.markdown(
         '<audio autoplay><source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" type="audio/mpeg"></audio>',
         unsafe_allow_html=True)
-
 
 # --- נתונים מקצועיים ---
 MEAT_DATA = {
@@ -160,7 +157,7 @@ with col_control:
             mult_val = 1.0
             st.warning("🔥 נתח זה דורש צלייה מלאה")
         else:
-            done = st.select_slider("מידת עשייה:", ["Rare", "Medium-Rare", "Medium", "Medium-Well", "Well Done"], "Medium")
+            done = st.select_slider("מידת עשייה:", options=["Rare", "Medium-Rare", "Medium", "Medium-Well", "Well Done"], value="Medium")
             mult_val = {"Rare": 0.6, "Medium-Rare": 0.8, "Medium": 1.0, "Medium-Well": 1.2, "Well Done": 1.5}[done]
 
         if st.button("📥 הוסף למנגל"):
@@ -204,14 +201,11 @@ with col_control:
 with col_fire:
     st.subheader("🔥 המנגל בפעולה")
 
-    # פתרון הקסם: שימוש בקונטיינר מובנה של Streamlit עם גובה קבוע!
-    # הוא דואג בעצמו להישאר בגובה 600 ולשמור את הכל בפנים.
     with st.container(height=655):
         st.markdown('<div class="marker-right-box"></div>', unsafe_allow_html=True)
         @st.fragment(run_every=1)
         def render_grill():
             if not st.session_state.grill_items:
-                # שימוש בקלאס המיוחד שמרכז בכוח
                 st.markdown("""
                                 <div class='empty-grill-box' style='margin-top: 200px;'>
                                     <h3>🥩 המנגל ריק...<br>מחכה לנתחים שלך</h3>
@@ -270,7 +264,6 @@ with col_fire:
                                 })
                                 del st.session_state.grill_items[iid]
                                 st.rerun()
-
 
         render_grill()
 
