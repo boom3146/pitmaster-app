@@ -10,7 +10,6 @@ st.set_page_config(page_title="Pitmaster Pro Ultimate", page_icon="🥩", layout
 
 WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzFbREv3LpOI1rMCGKIsy6hCH9ywMsq4bKalT-XeaZveMuKCHkLmUw7z5zjPz236yEE/exec"
 
-# --- 1. הזרקת עיצוב (CSS) מרוכז ונקי ---
 st.markdown("""
 <style>
 /* 1. הגדרות רקע וטקסט כללי */
@@ -22,25 +21,18 @@ st.markdown("""
 .stMarkdown ul, .stMarkdown ol { direction: rtl !important; padding-right: 2.5rem !important; }
 
 /* --- 3. הפתרון המוחלט לגבולות (עובד בכל דפדפן) --- */
-
-/* א. נותן מסגרת עבה לכל הריבועים (זה יתפוס ויעבה את אזור "סוג הנתח") */
 div[data-testid="stVerticalBlockBorderWrapper"] {
     border: 3px solid #777777 !important;
     border-radius: 12px !important;
 }
-
-/* ב. נותן מסגרת עבה לריבוע של המנגל עצמו (הקונטיינר עם הגובה) */
 div[data-testid="stScrollableContainer"] {
     border: 3px solid #777777 !important;
     border-radius: 12px !important;
 }
-
-/* ג. מחזיר לגבול דק ועדין *רק* את הנתחים שבתוך המנגל, כדי שלא יהיו גסים מדי */
 div[data-testid="stScrollableContainer"] div[data-testid="stVerticalBlockBorderWrapper"] {
     border: 1px solid #444444 !important;
     border-radius: 8px !important;
 }
-/* ------------------------------------------------ */
 
 /* 4. עיצוב תפריטים נפתחים (Expanders) */
 [data-testid="stExpander"] {
@@ -74,7 +66,7 @@ h1, h2, h3 { color: #ff4b4b !important; text-align: right; }
 /* תיקון באג התנועה ההפוכה של הסליידר */
 div[data-baseweb="slider"] {
     direction: ltr !important;
-    }
+}
 </style>
 """, unsafe_allow_html=True)
 
